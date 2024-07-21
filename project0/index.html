@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .links{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        .links_items{
+            margin: 10px;
+        }
+        a:link {
+            color: black;
+        }
+
+        /* visited link */
+        a:visited {
+            color: black;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: black;
+        }
+
+        /* selected link */
+        a:active {
+            color: black;
+        }
+        /* .input_lines{
+            max-width: 219;
+            max-height: 46;
+        } */
+        .search-bar{
+            resize: none;
+            background: #fff;
+            border: 1px solid #dfe1e5;
+            box-shadow: none;
+            border-radius: 24px;
+            margin: 0 auto;
+            display: flex;
+            width: calc(632px + 6px);
+            width: 700px;
+            z-index: 3;
+            height: 30px;
+            max-width: 700px;
+        }
+        .search-button{
+            user-select: none;
+            margin-left: 100px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 16px;
+            line-height: 27px;
+            height: 36px;
+            min-width: 54px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="links">
+        <a class="links_items" href="google_image.html">Image Search</a><br>
+        <a class="links_items" href="google_advance.html">Advanced Search</a>
+    </div>
+    <img src="google-logo-transparent.png" alt="google-logo" height="150px" class="google_icon">
+    <form action="https://www.google.com/search" method="get">
+        <input type="text" name="q" class="search-bar">
+        <input type="submit" value="Google Search" class="search-button">
+        <input class="search-button" value="I'm Feeling Lucky" type="submit">
+    </form>
+</body>
+</html>
+<!-- Add an I'm Feeling Lucky button to the main Google Search page. Consistent with Google's own behavior, 
+ clicking this link should take users directly to the first Google search result for the query,
+  bypassing the normal results page. -->
+<!-- You may encounter a redirect notice when using the I'm Feeling Lucky button. Not to worry! 
+ This is an expected consequence of a security feature implemented by Google. -->
+

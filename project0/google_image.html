@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Image Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .links{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        .links_items{
+            margin: 10px;
+        }
+        a:link {
+            color: black;
+        }
+
+        /* visited link */
+        a:visited {
+            color: black;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: black;
+        }
+
+        /* selected link */
+        a:active {
+            color: black;
+        }
+        .search-bar{
+            resize: none;
+            background: #fff;
+            border: 1px solid #dfe1e5;
+            box-shadow: none;
+            border-radius: 24px;
+            margin: 0 auto;
+            display: flex;
+            width: calc(632px + 6px);
+            width: 700px;
+            z-index: 3;
+            height: 30px;
+            max-width: 700px;
+        }
+        .search-button{
+            user-select: none;
+            margin-left: 100px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 16px;
+            line-height: 27px;
+            height: 36px;
+            min-width: 54px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            margin-left: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="links">
+        <a href="index.html">Google Search</a>
+    </div>
+    <img src="Google_Images_2015_logo.svg.png" alt="google-logo" height="150px" class="google_icon">
+    <form action="https://www.google.com/search">
+        <input type="text" name="q" class="search-bar">
+        <input type="hidden" name="tbm" value="isch">
+        <input type="submit" value="Google Image" class="search-button">
+</body>
+</html>
+<!-- On the Google Image Search page, the user should be able to type in a query,
+  click a search button, and be taken to the Google Image search results
+   for that page. -->
