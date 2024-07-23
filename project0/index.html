@@ -17,25 +17,15 @@
         a:link {
             color: black;
         }
-
-        /* visited link */
         a:visited {
             color: black;
         }
-
-        /* mouse over link */
         a:hover {
             color: black;
         }
-
-        /* selected link */
         a:active {
             color: black;
         }
-        /* .input_lines{
-            max-width: 219;
-            max-height: 46;
-        } */
         .search-bar{
             resize: none;
             background: #fff;
@@ -68,6 +58,10 @@
             text-align: center;
             cursor: pointer;
             user-select: none;
+            margin-left: 120px;
+        }
+        .botton{
+            align-items: center;
         }
     </style>
 </head>
@@ -79,14 +73,10 @@
     <img src="google-logo-transparent.png" alt="google-logo" height="150px" class="google_icon">
     <form action="https://www.google.com/search" method="get">
         <input type="text" name="q" class="search-bar">
+        <div class="botton">
         <input type="submit" value="Google Search" class="search-button">
-        <input class="search-button" value="I'm Feeling Lucky" type="submit">
+        <input class="search-button" name="btnI" value="I'm Feeling Lucky" type="submit">
+        </div>
     </form>
 </body>
 </html>
-<!-- Add an I'm Feeling Lucky button to the main Google Search page. Consistent with Google's own behavior, 
- clicking this link should take users directly to the first Google search result for the query,
-  bypassing the normal results page. -->
-<!-- You may encounter a redirect notice when using the I'm Feeling Lucky button. Not to worry! 
- This is an expected consequence of a security feature implemented by Google. -->
-

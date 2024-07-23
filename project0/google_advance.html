@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Google Advanced Search</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
+        body{
+            margin: 20px;
+        }
         .links{
             list-style-type: none;
             display: flex;
@@ -17,54 +19,64 @@
         a:link {
             color: black;
         }
-
-        /* visited link */
         a:visited {
             color: black;
         }
-
-        /* mouse over link */
         a:hover {
             color: black;
         }
-
-        /* selected link */
         a:active {
             color: black;
         }
         .Advance-logo{
-            position: relative;
-            top: -170px;
-            right: 760px;
-            color: red;
+            color: #d93025;
             font-family: sans-serif;
             font-weight: lighter;
-        }
-        .google_icon{
-            position: relative;
-            top: -200px;
-            right: 850px;
-        }
-        .search-bar{
-            margin-bottom: 20px;
-        }
-        .input_lines {
-            text-align: left;
-            position: relative;
-            top: -100px;
-            right: 550px;
-            align-items: center;
-            flex-direction: row;
-            display: flex;
+            font-size: 30px;
+            margin-top: 50px;
+            margin-right: 35px;
+            margin-bottom: 35px;
+            margin-left: 45px;
         }
         .gy3Eif {
             border-bottom: 1px solid #ebebeb;
         }
         .find_pages{
-            height: 30px;
-            vertical-align: middle;
-            display: table-cell;
+            font-size: 23px;
+            color: #333333;
+            font-family: sans-serif;
+            margin: 45px;
         }
+        .raw_input{
+            margin-left: 45px;
+            display: flex;
+            align-items: center;
+            font-family: sans-serif;
+        }
+        .front{
+            font-size: 20px;
+            width: 300px;
+        }
+        .search-bar{
+            width: 850px;
+            height: 40px;
+        }
+        .advance-btn{
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            background-color: #4d90fe;
+            border: 1px solid #3079ed;
+            color: #fff;
+            border-radius: 2px;
+            height: 40px;
+        }
+        .advance-botton{
+            display: flex;
+            justify-content: flex-end;
+            width: 1200px;
+        }
+        
     </style>
 </head>
 <body>
@@ -76,22 +88,43 @@
     <div class="gy3Eif"></div>
     <div class="input_lines">
         <p class="find_pages">Find pages with...</p>
-        <form action="https://www.google.com/advanced_search" method="get" >
-            <label for="html">all these words:</label>
-            <input type="text" name="q" class="search-bar"><br>
-            <label for="html">this exact word or phrase:</label>
-            <input type="text" name="as_epq" class="search-bar"><br>
-            <label for="html">any of these words:</label>
-            <input type="text" name="as_oq" class="search-bar"><br>
-            <label for="html">none of these words:</label>
-            <input type="text" name="as_eq" class="search-bar">
-            <button type="submit" class="search-button">Advanced Search</button>
+        <form action="https://www.google.com/search" method="get" >
+            <div class="raw_input">
+                <div class="front">
+                <p for="html">all these words:</p>
+                </div>
+                <div class="back">
+                <input type="text" name="as_q" class="search-bar"><br>
+                </div>
+            </div>
+            <div class="raw_input">
+                <div class="front">
+                <p for="html">this exact word or phrase:</p>
+                </div>
+                <div class="back">
+                <input type="text" name="as_epq" class="search-bar"><br>
+                </div>
+            </div>
+            <div class="raw_input">
+                <div class="front">
+                <p for="html">any of these words:</p>
+                </div>
+                <div class="back">
+                <input type="text" name="as_oq" class="search-bar"><br>
+                </div>
+            </div>
+            <div class="raw_input">
+                <div class="front">
+                <p for="html">none of these words:</p>
+                </div>
+                <div class="back">
+                <input type="text" name="as_eq" class="search-bar"><br>
+                </div>
+            </div>
+            <div class="advance-botton">
+                <input type="submit" value="Advance Search" class="advance-btn">
+            </div>
         </form>
     </div>
 </body>
 </html>
-<!-- Like Google’s own Advanced Search page, the four options should be 
- stacked vertically, and all of the text fields should be left aligned.
-
-1. Consistent with Google’s own CSS, the “Advanced Search” button should be blue with white text.
-2. When the “Advanced Search” button is clicked, the user should be taken to the search results page for their given query. -->
