@@ -93,6 +93,48 @@ function load_email(email_id) {
           })
         })
       }
+      const archiveButton = document.createElement('button')
+      archiveButton.innerHTML = email.archived ? 'Unarchive' : 'Archive'
+      archiveButton.className = email.archived ? 'btn btn-success' : 'btn btn-danger'
+
+      // Add event listener to handle archiving/unarchiving
+      archiveButton.addEventListener('click', function() {
+        fetch(`/emails/${email_id}`, {
+          method: 'PUT',
+          body: JSON.stringify({
+              archived: !email.archived
+          })
+        })
+        .then(() => {
+          // Reload the mailbox after archiving/unarchiving
+          load_mailbox('inbox');
+        });
+      });
+
+      // Append the button to the email details view
+      emailDetailView.append(archiveButton);
+
+      const replyButton = document.createElement('button')
+      replyButton.innerHTML = 'Reply'
+      replyButton.className = 'btn btn-info'
+      replyButton.addEventListener('click', function(){
+        compose_email()
+        document.querySelector('#compose-recipients').value = email.sender
+        let subject = email.subject
+        if (subject.split(' ',1)[0] !== "Re:"){
+          subject = "Re: " + email.subject
+        }
+        document.querySelector('#compose-subject').value = subject
+        document.querySelector('#compose-body').value = `On ${email.timestamp} ${email.sender} wrote `
+        // document.querySelector('#emails-view').style.display = 'none';
+        // document.querySelector('#compose-view').style.display = 'block';
+
+        // // Pre-fill composition form
+        // document.querySelector('#compose-recipients').value = email.sender;
+        // document.querySelector('#compose-subject').value = email.subject.startsWith('Re:') ? email.subject : `Re: ${email.subject}`;
+        // document.querySelector('#compose-body').value = `On ${email.timestamp}, ${email.sender} wrote:\n${email.body}\n\n`;
+      })
+      emailDetailView.append(replyButton)
     })
 }
 
