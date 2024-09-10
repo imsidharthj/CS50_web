@@ -6,9 +6,13 @@
 
 {% block body %}
     <h1>Search Results for "{{ query }}"</h1>
-    <ul>
-        {% for entry in entries %}
-            <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
-        {% endfor %}
-    </ul>
+    {% if recommendations %}
+        <ul>
+            {% for entry in recommendations %}
+                <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No entries found matching "{{ query }}".</p>
+    {% endif %}
 {% endblock %}

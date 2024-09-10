@@ -25,22 +25,31 @@ def entry(request, title):
 
 def search(request):
     if request.method == "POST":
-        entry_search = request.POST['q']
-        html_content = convert(entry_search)
-        if html_content is not None:
+        entry_search = request.POST.get('q', '').lower()
+        allEntries = util.list_entries()
+        
+        exact_match = None
+        recommendations = []
+        
+        for entry in allEntries:
+            entry_lower = entry.lower()
+            if entry_lower == entry_search:
+                exact_match = entry
+                break
+            elif entry_search in entry_lower:
+                recommendations.append(entry)
+        
+        if exact_match:
+            html_content = convert(exact_match)
             return render(request, "encyclopedia/entry.html", {
-                "title":entry_search,
-                "content":html_content
+                "title": exact_match,
+                "content": html_content
             })
-        else:
-            allEntries = util.list_entries()
-            recommendation = []
-            for entry in allEntries:
-                if entry_search.lower() in entry.lower():
-                    recommendation.append(entry)
-            return render(request, "encyclopedia/search.html", {
-                "recommendation":recommendation
-            })
+        
+        return render(request, "encyclopedia/search.html", {
+            "query": entry_search,
+            "recommendations": recommendations
+        })
 
 
 def create(request):
@@ -49,7 +58,7 @@ def create(request):
         content = request.POST.get("content")
         if util.get_entry(title) is not None:
             return render(request, "encyclopedia/new_page.html", {
-                "error_message": "An entry with this title already exists."
+                "error_message": f"An entry with {title} title already exists."
             })
         util.save_entry(title, content)
         return redirect("entry", title=title)

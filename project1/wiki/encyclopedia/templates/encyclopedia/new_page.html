@@ -1,12 +1,13 @@
 {% extends "encyclopedia/layout.html" %}
+
 {% block title %}
     Add new Entry
 {% endblock %}
 
 {% block body %}
-    {% if error_massage %}
-        <div class="Rentry error">{{ error_massage }}</div>
-    {% endif %}
+    {% if error_message %}
+        <div class="Rentry error"><h1>{{ error_message }}</h1></div>
+    {% else %}
     <form action="{% url 'create' %}" method="POST">
         {% csrf_token %}
         <label for="title">Title:</label>
@@ -15,4 +16,5 @@
         <textarea id="content" name="content" rows="10" cols="80" required></textarea><br>
         <button type="submit">Save Entry</button>
     </form>
+{% endif %}
 {% endblock %}
