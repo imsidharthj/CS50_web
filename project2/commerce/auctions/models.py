@@ -6,22 +6,23 @@ class User(AbstractUser):
     pass
 
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+
 class Create_listing(models.Model):
-    CATEGORY_CHOICES = [
-        ('Fashion', 'Fashion'),
-        ('Toys', 'Toys'),
-        ('Electronics', 'Electronics'),
-        ('Home', 'Home'),
-    ]
     title = models.CharField(max_length=20)
     description = models.CharField(max_length=200)
     bid = models.IntegerField()
     image_url = models.URLField(max_length=200, blank=True, null=True)
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, related_name="category")
 
-
-class Categories(models.Model):
-    categories_ = models.CharField(max_length=50)
+    def __str__(self):
+        return self.title
 
 
 class bids():

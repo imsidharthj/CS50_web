@@ -1,0 +1,26 @@
+[
+    {
+        "model": "auctions.category",
+        "fields": {
+            "name": "Electronics"
+        }
+    },
+    {
+        "model": "auctions.category",
+        "fields": {
+            "name": "Fashion"
+        }
+    },
+    {
+        "model": "auctions.category",
+        "fields": {
+            "name": "Home"
+        }
+    },
+    {
+        "model": "auctions.category",
+        "fields": {
+            "name": "Toys"
+        }
+    }
+]
